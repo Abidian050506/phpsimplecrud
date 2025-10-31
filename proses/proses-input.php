@@ -6,13 +6,15 @@ include '../config/class-mahasiswa.php';
 $mahasiswa = new Mahasiswa();
 // Mengambil data mahasiswa dari form input menggunakan metode POST dan menyimpannya dalam array
 $dataMahasiswa = [
-    'nim' => $_POST['nim'],
+    'ktp' => $_POST['ktp'],
     'nama' => $_POST['nama'],
-    'prodi' => $_POST['prodi'],
     'alamat' => $_POST['alamat'],
-    'provinsi' => $_POST['provinsi'],
-    'email' => $_POST['email'],
     'telp' => $_POST['telp'],
+    'email' => $_POST['email'],
+    'mobil' => $_POST['mobil'],
+    'sewa' => $_POST['sewa'],
+    'kembali' => $_POST['kembali'],
+    'biaya' => $_POST['biaya'],
     'status' => $_POST['status']
 ];
 // Memanggil method inputMahasiswa untuk memasukkan data mahasiswa dengan parameter array $dataMahasiswa

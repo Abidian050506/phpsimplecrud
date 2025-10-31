@@ -1,1 +1,19 @@
 /* Taruh CSS Custom Disini */
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem; /* jarak antara logo dan teks */
+  text-decoration: none;
+}
+
+.brand-image {
+  display: inline-block;
+  width: 48px;            /* ukuran default — ubah sesuai kebutuhan */
+  height: 48px;           /* menjaga kotak persegi agar proporsional */
+  object-fit: contain;    /* menjaga rasio aspek gambar */
+  vertical-align: middle;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 50%;
+}

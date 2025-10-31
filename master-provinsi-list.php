@@ -37,12 +37,12 @@ $dataProvinsi = $master->getProvinsi();
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-sm-6">
-								<h3 class="mb-0">Data Provinsi</h3>
+								<h3 class="mb-0">Metode Pembayaran</h3>
 							</div>
 							<div class="col-sm-6">
 								<ol class="breadcrumb float-sm-end">
 									<li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Master Provinsi</li>
+									<li class="breadcrumb-item active" aria-current="page">Metode Pembayaran</li>
 								</ol>
 							</div>
 						</div>
@@ -55,7 +55,7 @@ $dataProvinsi = $master->getProvinsi();
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Daftar Provinsi</h3>
+										<h3 class="card-title">Metode Pembayaran</h3>
 										<div class="card-tools">
 											<button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
 												<i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -71,7 +71,7 @@ $dataProvinsi = $master->getProvinsi();
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>Nama</th>
+													<th>Metode Pembayaran</th>
 													<th class="text-center">Aksi</th>
 												</tr>
 											</thead>
@@ -98,7 +98,7 @@ $dataProvinsi = $master->getProvinsi();
 										</table>
 									</div>
 									<div class="card-footer">
-										<button type="button" class="btn btn-primary" onclick="window.location.href='master-provinsi-input.php'"><i class="bi bi-plus-lg"></i> Tambah Provinsi</button>
+										<button type="button" class="btn btn-primary" onclick="window.location.href='master-provinsi-input.php'"><i class="bi bi-plus-lg"></i> Tambah Metode Pembayaran</button>
 									</div>
 								</div>
 							</div>
