@@ -14,7 +14,7 @@ if(isset($_GET['status'])){
 		echo "<script>alert('Gagal menghapus data prodi. Silakan coba lagi.');</script>";
 	}
 }
-$dataProdi = $master->getProdi();
+$dataMobil = $master->getMobil();
 
 ?>
 <!doctype html>
@@ -37,12 +37,12 @@ $dataProdi = $master->getProdi();
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-sm-6">
-								<h3 class="mb-0">Data Nama Mobil</h3>
+								<h3 class="mb-0">Data Mobil</h3>
 							</div>
 							<div class="col-sm-6">
 								<ol class="breadcrumb float-sm-end">
 									<li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Nama Mobil</li>
+									<li class="breadcrumb-item active" aria-current="page">Master Mobil</li>
 								</ol>
 							</div>
 						</div>
@@ -55,7 +55,7 @@ $dataProdi = $master->getProdi();
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Daftar Nama Mobil</h3>
+										<h3 class="card-title">Daftar Mobil</h3>
 										<div class="card-tools">
 											<button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
 												<i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -72,25 +72,25 @@ $dataProdi = $master->getProdi();
 												<tr>
 													<th>No</th>
 													<th>Kode</th>
-													<th>Nama Mobil</th>
+													<th>Nama</th>
 													<th class="text-center">Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
 												<?php
-													if(count($dataProdi) == 0){
+													if(count($dataMobil) == 0){
 													    echo '<tr class="align-middle">
-															<td colspan="4" class="text-center">Tidak ada data prodi.</td>
+															<td colspan="4" class="text-center">Tidak ada data mobil.</td>
 														</tr>';
 													} else {
-														foreach ($dataProdi as $index => $prodi){
+														foreach ($dataMobil as $index => $mobil){
 															echo '<tr class="align-middle">
 																<td>'.($index + 1).'</td>
-																<td>'.$prodi['id'].'</td>
-																<td>'.$prodi['nama'].'</td>
+																<td>'.$mobil['id'].'</td>
+																<td>'.$mobil['nama'].'</td>
 																<td class="text-center">
-																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'master-prodi-edit.php?id='.$prodi['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
-																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data program studi ini?\')){window.location.href=\'proses/proses-prodi.php?aksi=deleteprodi&id='.$prodi['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
+																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'master-prodi-edit.php?id='.$mobil['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
+																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data program studi ini?\')){window.location.href=\'proses/proses-prodi.php?aksi=deletemobil&id='.$mobil['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
 																</td>
 															</tr>';
 														}

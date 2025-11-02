@@ -8,12 +8,111 @@
 
 .brand-image {
   display: inline-block;
-  width: 48px;            /* ukuran default — ubah sesuai kebutuhan */
-  height: 48px;           /* menjaga kotak persegi agar proporsional */
-  object-fit: contain;    /* menjaga rasio aspek gambar */
+  width: 48px; /* ukuran default — ubah sesuai kebutuhan */
+  height: 48px; /* menjaga kotak persegi agar proporsional */
+  object-fit: contain; /* menjaga rasio aspek gambar */
   vertical-align: middle;
   transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
   background-color: transparent;
   box-shadow: none;
   border-radius: 50%;
 }
+
+.card { /* Desain dasar untuk kotak card */
+    background: #fff; /* Warna putih bersih */
+    border: none; /* Hilangkan garis tepi */
+    border-radius: 20px; /* Sudut membulat */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Bayangan lembut */
+    transition: all 0.3s ease; /* Animasi halus saat hover */
+}
+
+/*  CARD HEADER  */
+.card-header { /* Bagian atas card (judul) */
+    background: linear-gradient(90deg, #0066ff, #00c6ff); /* Gradasi biru */
+    color: white; /* Teks putih */
+    border-top-left-radius: 20px; /* Sudut kiri atas membulat */
+    border-top-right-radius: 20px; /* Sudut kanan atas membulat */
+    padding: 1.2rem 1.5rem; /* Ruang dalam */
+}
+
+.card-header h3 { /* Judul di header card */
+    font-weight: 600; /* Tebal */
+    letter-spacing: 0.5px; /* Sedikit renggang */
+}
+
+/* CARD BODY */
+.card-body { /* Area isi card */
+    padding: 2rem; /* Ruang dalam besar */
+    line-height: 1.8; /* Spasi antar baris */
+    background: #f9fbff; /* Background lembut biru-putih */
+    border-bottom-left-radius: 20px; /* Sudut bawah kiri membulat */
+    border-bottom-right-radius: 20px; /* Sudut bawah kanan membulat */
+}
+
+.card-body p { /* Paragraf di dalam card */
+    font-size: 1rem; /* Ukuran normal */
+    color: #444; /* Warna teks sedikit gelap */
+    margin-bottom: 1rem; /* Jarak antar paragraf */
+}
+
+.card-body p:first-of-type { /* Paragraf pertama lebih menonjol */
+    font-weight: 500; /* Sedikit tebal */
+    color: #000; /* Lebih gelap */
+}
+
+.card-body a.btn { /* Tombol di dalam card body */
+    margin-right: 0.8rem; /* Jarak antar tombol */
+    margin-top: 1rem; /* Jarak atas kecil */
+}
+
+/* ====== BUTTONS ====== */
+.btn { /* Desain umum tombol */
+    border-radius: 50px; /* Bentuk oval */
+    padding: 0.75rem 1.5rem; /* Ukuran tombol */
+    font-weight: 500; /* Sedikit tebal */
+    transition: all 0.3s ease-in-out; /* Animasi halus */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1); /* Bayangan halus */
+}
+
+.btn:hover { /* Efek hover tombol */
+    transform: translateY(-3px); /* Naik sedikit */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2); /* Bayangan lebih dalam */
+}
+
+/* Warna gradasi untuk tiap jenis tombol */
+.btn-primary { /* Biru cerah */
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    border: none;
+}
+
+.btn-success { /* Hijau */
+    background: linear-gradient(90deg, #00b09b, #96c93d);
+    border: none;
+}
+
+.btn-warning { /* Kuning */
+    background: linear-gradient(90deg, #f7971e, #ffd200);
+    border: none;
+    color: #333; /* Warna teks lebih gelap agar kontras */
+}
+
+/* ====== HEADER AREA ====== */
+.app-content-header { /* Area atas halaman */
+    background: rgba(255, 255, 255, 0.8); /* Putih transparan */
+    backdrop-filter: blur(6px); /* Efek kaca buram */
+    padding: 1.5rem; /* Ruang dalam */
+    border-radius: 15px; /* Sudut membulat */
+    margin-bottom: 1.5rem; /* Jarak bawah */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Bayangan lembut */
+}
+
+.app-content-header h3 { /* Judul di header halaman */
+    font-weight: 700;
+    color: #0066ff; /* Warna biru dominan */
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+

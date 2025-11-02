@@ -3,7 +3,7 @@
 // Silakan lihat komentar di file data-edit.php untuk penjelasan kode ini, karena struktur dan logikanya serupa.
 include_once 'config/class-master.php';
 $master = new MasterData();
-$dataProdi = $master->getUpdateProdi($_GET['id']);
+$dataMobil = $master->getUpdateMobil($_GET['id']);
 if(isset($_GET['status'])){
     if($_GET['status'] == 'failed'){
         echo "<script>alert('Gagal mengubah data program studi. Silakan coba lagi.');</script>";
@@ -49,7 +49,7 @@ if(isset($_GET['status'])){
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Formulir Program Studi</h3>
+										<h3 class="card-title">Formulir Mobil</h3>
 										<div class="card-tools">
 											<button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
 												<i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -60,15 +60,15 @@ if(isset($_GET['status'])){
 											</button>
 										</div>
 									</div>
-                                    <form action="proses/proses-prodi.php?aksi=updateprodi" method="POST">
+                                    <form action="proses/proses-prodi.php?aksi=updatemobil" method="POST">
 									    <div class="card-body">
                                             <div class="mb-3">
-                                                <label for="nama" class="form-label">Kode Program</label>
-                                                <input type="text" class="form-control-plaintext" id="kode" name="kode" placeholder="Masukkan Kode Program Studi" value="<?php echo $dataProdi['id']; ?>" required readonly>
+                                                <label for="nama" class="form-label">Kode mobil</label>
+                                                <input type="text" class="form-control-plaintext" id="kode" name="kode" placeholder="Masukkan Kode Mobil" value="<?php echo $dataMobil['id']; ?>" required readonly>
                                             </div>
 											<div class="mb-3">
-												<label for="nama" class="form-label">Nama Program Studi</label>
-												<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Program Studi" value="<?php echo $dataProdi['nama']; ?>" required>
+												<label for="nama" class="form-label">Nama Mobil</label>
+												<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Mobil" value="<?php echo $dataMobil['nama']; ?>" required>
 											</div>
                                         </div>
 									    <div class="card-footer">

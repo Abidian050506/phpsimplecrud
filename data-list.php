@@ -1,21 +1,21 @@
- <?php
+<?php
 
 include_once 'config/class-mahasiswa.php';
-$mahasiswa = new Mahasiswa();
+$customer = new Customer();
 // Menampilkan alert berdasarkan status yang diterima melalui parameter GET
 if(isset($_GET['status'])){
 	// Mengecek nilai parameter GET 'status' dan menampilkan alert yang sesuai menggunakan JavaScript
 	if($_GET['status'] == 'inputsuccess'){
-		echo "<script>alert('Data mahasiswa berhasil ditambahkan.');</script>";
+		echo "<script>alert('Data Customer berhasil ditambahkan.');</script>";
 	} else if($_GET['status'] == 'editsuccess'){
-		echo "<script>alert('Data mahasiswa berhasil diubah.');</script>";
+		echo "<script>alert('Data Customer berhasil diubah.');</script>";
 	} else if($_GET['status'] == 'deletesuccess'){
-		echo "<script>alert('Data mahasiswa berhasil dihapus.');</script>";
+		echo "<script>alert('Data Customer berhasil dihapus.');</script>";
 	} else if($_GET['status'] == 'deletefailed'){
-		echo "<script>alert('Gagal menghapus data mahasiswa. Silakan coba lagi.');</script>";
+		echo "<script>alert('Gagal menghapus data Customer. Silakan coba lagi.');</script>";
 	}
 }
-$dataMahasiswa = $mahasiswa->getAllMahasiswa();
+$dataCustomer = $customer->getAllCustomer();
 
 ?>
 <!doctype html>
@@ -72,47 +72,49 @@ $dataMahasiswa = $mahasiswa->getAllMahasiswa();
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>KTP</th>
+													<th>Ktp</th>
 													<th>Nama</th>
 													<th>Alamat</th>
 													<th>Telp</th>
 													<th>Email</th>
 													<th>Mobil</th>
-													<th>Tanggal Sewa</th>
-													<th>Tanggal Kembali</th>
-													<th>Total Biaya</th>
-													<th class="text-center">Status Pembayaran</th>
+													<th>Tgl Sewa</th>
+													<th>Tgl Kembali</th>
+													<th class="text-center">Status</th>
 													<th class="text-center">Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
 												<?php
-													if(count($dataMahasiswa) == 0){
+													if(count($dataCustomer) == 0){
 													    echo '<tr class="align-middle">
-															<td colspan="12" class="text-center">Tidak ada data customer.</td>
+															<td colspan="11" class="text-center">Tidak ada data Customer.</td>
 														</tr>';
 													} else {
-														foreach ($dataMahasiswa as $index => $mahasiswa){
-															if($mahasiswa['status'] == 1){
-															    $mahasiswa['status'] = '<span class="badge bg-success">Lunas</span>';
-															} elseif($mahasiswa['status'] == 2){
-															    $mahasiswa['status'] = '<span class="badge bg-danger">Belum Lunas</span>';
+														foreach ($dataCustomer as $index => $customer){
+															if($customer['status'] == 1){
+															    $customer['status'] = '<span class="badge bg-success">Lunas</span>';
+															} elseif($customer['status'] == 2){
+															    $customer['status'] = '<span class="badge bg-danger">Belum Lunas</span>';
+															} elseif($customer['status'] == 3){
+															    $customer['status'] = '<span class="badge bg-warning text-dark">Sudah DP</span>';
+															} elseif($customer['status'] == 4){
+															    $customer['status'] = '<span class="badge bg-primary">Denda</span>';
 															} 
 															echo '<tr class="align-middle">
 																<td>'.($index + 1).'</td>
-																<td>'.$mahasiswa['ktp'].'</td>
-																<td>'.$mahasiswa['nama'].'</td>
-																<td>'.$mahasiswa['alamat'].'</td>
-																<td>'.$mahasiswa['telp'].'</td>
-																<td>'.$mahasiswa['email'].'</td>
-																<td>'.$mahasiswa['mobil'].'</td>
-																<td>'.$mahasiswa['sewa'].'</td>
-																<td>'.$mahasiswa['kembali'].'</td>
-																<td>'.$mahasiswa['biaya'].'</td>
-																<td class="text-center">'.$mahasiswa['status'].'</td>
+																<td>'.$customer['ktp'].'</td>
+																<td>'.$customer['nama'].'</td>
+																<td>'.$customer['alamat'].'</td>
+																<td>'.$customer['telp'].'</td>
+																<td>'.$customer['email'].'</td>
+																<td>'.$customer['mobil'].'</td>
+																<td>'.$customer['sewa'].'</td>
+																<td>'.$customer['kembali'].'</td>
+																<td class="text-center">'.$customer['status'].'</td>
 																<td class="text-center">
-																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'data-edit.php?id='.$mahasiswa['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
-																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data mahasiswa ini?\')){window.location.href=\'proses/proses-delete.php?id='.$mahasiswa['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
+																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'data-edit.php?id='.$customer['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
+																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data mahasiswa ini?\')){window.location.href=\'proses/proses-delete.php?id='.$customer['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
 																</td>
 															</tr>';
 														}
@@ -139,4 +141,4 @@ $dataMahasiswa = $mahasiswa->getAllMahasiswa();
 		<?php include 'template/script.php'; ?>
 
 	</body>
-</html> 
+</html>

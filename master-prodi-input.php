@@ -46,7 +46,7 @@ if(isset($_GET['status'])){
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Formulir Data Mobil</h3>
+										<h3 class="card-title">Formulir Mobil</h3>
 										<div class="card-tools">
 											<button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
 												<i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -57,14 +57,14 @@ if(isset($_GET['status'])){
 											</button>
 										</div>
 									</div>
-                                    <form action="proses/proses-prodi.php?aksi=inputprodi" method="POST">
+                                    <form action="proses/proses-prodi.php?aksi=inputmobil" method="POST">
 									    <div class="card-body">
                                             <div class="mb-3">
-                                                <label for="nama" class="form-label">Kode </label>
-                                                <input type="text" class="form-control" id="kode" name="kode" placeholder="Masukkan Kode" required>
+                                                <label for="nama" class="form-label">Kode Mobil</label>
+                                                <input type="text" class="form-control" id="kode" name="kode" placeholder="Masukkan Kode Mobil" required>
                                             </div>
 											<div class="mb-3">
-												<label for="nama" class="form-label">Nama Mobil</label>
+												<label for="nama" class="form-label">Nama mobil</label>
 												<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Mobil" required>
 											</div>
                                         </div>

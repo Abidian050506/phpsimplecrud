@@ -3,7 +3,7 @@
 include_once 'config/class-master.php';
 $master = new MasterData();
 // Mengambil daftar program studi, provinsi, dan status mahasiswa
-$prodiList = $master->getProdi();
+$mobilList = $master->getMobil();
 // Mengambil daftar status mahasiswa
 $statusList = $master->getStatus();
 // Menampilkan alert berdasarkan status yang diterima melalui parameter GET
@@ -66,19 +66,19 @@ if(isset($_GET['status'])){
                                     <form action="proses/proses-input.php" method="POST">
 									    <div class="card-body">
                                             <div class="mb-3">
-                                                <label for="ktp" class="form-label">No. KTP/SIM</label>
-                                                <input type="text" class="form-control" id="ktp" name="ktp" placeholder="Masukkan No. KTP/SIM Anda" required>
+                                                <label for="ktp" class="form-label">Kartu Tanda pengenal (KTP)</label>
+                                                <input type="number" class="form-control" id="ktp" name="ktp" placeholder="Masukkan KTP Customer" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nama" class="form-label">Nama Lengkap</label>
-                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Lengkap Anda" required>
+                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Lengkap Customer" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="alamat" class="form-label">Alamat</label>
                                                 <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat Lengkap Sesuai KTP" required></textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="telp" class="form-label">No. Telepon</label>
+                                                <label for="telp" class="form-label">Nomor Telepon</label>
                                                 <input type="tel" class="form-control" id="telp" name="telp" placeholder="Masukkan Nomor Telpon/HP" pattern="[0-9+\-\s()]{6,20}" required>
                                             </div>
                                             <div class="mb-3">
@@ -86,35 +86,31 @@ if(isset($_GET['status'])){
                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email Valid dan Benar" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="mobil" class="form-label">Pilih Mobil</label>
+                                                <label for="mobil" class="form-label">Daftar Mobil</label>
                                                 <select class="form-select" id="mobil" name="mobil" required>
                                                     <option value="" selected disabled>Pilih Mobil</option>
                                                     <?php 
                                                     // Iterasi daftar program studi dan menampilkannya sebagai opsi dalam dropdown
-                                                    foreach ($prodiList as $prodi){
-                                                        echo '<option value="'.$prodi['id'].'">'.$prodi['nama'].'</option>';
+                                                    foreach ($mobilList as $mobil){
+                                                        echo '<option value="'.$mobil['id'].'">'.$mobil['nama'].'</option>';
                                                     }
                                                     ?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="sewa" class="form-label">Tanggal Sewa</label>
-                                                <input type="date" class="form-control" id="sewa" name="sewa" placeholder="Masukkan Tanggal Sewa Yang Benar" required>
+                                                <label for="sewa" class="form-label">Tgl Sewa</label>
+                                                <input type="date" class="form-control" id="sewa" name="sewa" placeholder="Masukkan Tanggal Sewa Mobil" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="kembali" class="form-label">Tanggal Kembali</label>
-                                                <input type="date" class="form-control" id="kembali" name="kembali" placeholder="Masukkan Tanggal kembali Yang Benar" required>
+                                                <label for="Kembali" class="form-label">Tanggal Kembali</label>
+                                                <input type="date" class="form-control" id="kembali" name="kembali" placeholder="Masukkan Tanggal Kembali Mobil" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="biaya" class="form-label">Total Biaya</label>
-                                                <input type="text" class="form-control" id="biaya" name="biaya" placeholder="Masukkan Total Biaya" required>
-                                            </div> 
-                                            <div class="mb-3">
-                                                <label for="status" class="form-label">Status Pembayaran</label>
+                                                <label for="status" class="form-label">status</label>
                                                 <select class="form-select" id="status" name="status" required>
-                                                    <option value="" selected disabled>Pilih Metode</option>
+                                                    <option value="" selected disabled>Pilih Status</option>
                                                     <?php 
-                                                    // Iterasi daftar status mahasiswa dan menampilkannya sebagai opsi dalam dropdown
+                                                    // Iterasi daftar program studi dan menampilkannya sebagai opsi dalam dropdown
                                                     foreach ($statusList as $status){
                                                         echo '<option value="'.$status['id'].'">'.$status['nama'].'</option>';
                                                     }
