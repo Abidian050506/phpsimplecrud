@@ -72,14 +72,14 @@ $dataCustomer = $customer->getAllCustomer();
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>Ktp</th>
+													<th>KTP</th>
 													<th>Nama</th>
 													<th>Alamat</th>
 													<th>Telp</th>
 													<th>Email</th>
 													<th>Mobil</th>
-													<th>Tgl Sewa</th>
-													<th>Tgl Kembali</th>
+													<th>Tanggal Sewa</th>
+													<th>Tanggal Kembali</th>
 													<th class="text-center">Status</th>
 													<th class="text-center">Aksi</th>
 												</tr>
@@ -95,7 +95,7 @@ $dataCustomer = $customer->getAllCustomer();
 															if($customer['status'] == 1){
 															    $customer['status'] = '<span class="badge bg-success">Lunas</span>';
 															} elseif($customer['status'] == 2){
-															    $customer['status'] = '<span class="badge bg-danger">Belum Lunas</span>';
+															    $customer['status'] = '<span class="badge bg-danger">Belum Bayar</span>';
 															} elseif($customer['status'] == 3){
 															    $customer['status'] = '<span class="badge bg-warning text-dark">Sudah DP</span>';
 															} elseif($customer['status'] == 4){
@@ -114,7 +114,7 @@ $dataCustomer = $customer->getAllCustomer();
 																<td class="text-center">'.$customer['status'].'</td>
 																<td class="text-center">
 																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'data-edit.php?id='.$customer['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
-																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data mahasiswa ini?\')){window.location.href=\'proses/proses-delete.php?id='.$customer['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
+																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus Customer ini?\')){window.location.href=\'proses/proses-delete.php?id='.$customer['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
 																</td>
 															</tr>';
 														}

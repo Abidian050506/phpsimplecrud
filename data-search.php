@@ -109,17 +109,17 @@ if(isset($_GET['search'])){
 													<tbody>';
 													// Iterasi data mahasiswa yang ditemukan dan menampilkannya dalam tabel
 													foreach ($cariCustomer as $index => $customer){
-														// Mengubah status mahasiswa menjadi badge dengan warna yang sesuai
+														// Mengubah status customer menjadi badge dengan warna yang sesuai
 														if($customer['status'] == 1){
-															$customer['status'] = '<span class="badge bg-success">Aktif</span>';
+															$customer['status'] = '<span class="badge bg-success">Lunas</span>';
 														} elseif($customer['status'] == 2){
-															$customer['status'] = '<span class="badge bg-danger">Tidak Aktif</span>';
+															$customer['status'] = '<span class="badge bg-danger">Belum Bayar</span>';
 														} elseif($customer['status'] == 3){
-															$customer['status'] = '<span class="badge bg-warning text-dark">Cuti</span>';
+															$customer['status'] = '<span class="badge bg-warning text-dark">Sudah DP</span>';
 														} elseif($customer['status'] == 4){
-															$customer['status'] = '<span class="badge bg-primary">Lulus</span>';
+															$customer['status'] = '<span class="badge bg-primary">Denda</span>';
 														} 
-														// Menampilkan baris data mahasiswa dalam tabel
+														// Menampilkan baris data customer dalam tabel
 														echo '<tr class="align-middle">
 															<td>'.($index + 1).'</td>
 															<td>'.$customer['ktp'].'</td>
@@ -140,7 +140,7 @@ if(isset($_GET['search'])){
 												echo '</tbody>
 												</table>';
 											} else {
-												// Menampilkan pesan jika tidak ada data mahasiswa yang ditemukan
+												// Menampilkan pesan jika tidak ada data customer yang ditemukan
 												echo '<div class="alert alert-warning" role="alert">
 														Tidak ditemukan data customer yang sesuai dengan kata kunci "<strong>'.htmlspecialchars($_GET['search']).'</strong>".
 													  </div>';

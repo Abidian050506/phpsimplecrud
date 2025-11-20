@@ -5,13 +5,13 @@ include_once 'config/class-master.php';
 $master = new MasterData();
 if(isset($_GET['status'])){
 	if($_GET['status'] == 'inputsuccess'){
-		echo "<script>alert('Data prodi berhasil ditambahkan.');</script>";
+		echo "<script>alert('Data Mobil berhasil ditambahkan.');</script>";
 	} else if($_GET['status'] == 'editsuccess'){
-		echo "<script>alert('Data prodi berhasil diubah.');</script>";
+		echo "<script>alert('Data Mobil berhasil diubah.');</script>";
 	} else if($_GET['status'] == 'deletesuccess'){
-		echo "<script>alert('Data prodi berhasil dihapus.');</script>";
+		echo "<script>alert('Data Mobil berhasil dihapus.');</script>";
 	} else if($_GET['status'] == 'deletefailed'){
-		echo "<script>alert('Gagal menghapus data prodi. Silakan coba lagi.');</script>";
+		echo "<script>alert('Gagal menghapus data Mobil. Silakan coba lagi.');</script>";
 	}
 }
 $dataMobil = $master->getMobil();
@@ -90,7 +90,7 @@ $dataMobil = $master->getMobil();
 																<td>'.$mobil['nama'].'</td>
 																<td class="text-center">
 																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'master-prodi-edit.php?id='.$mobil['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
-																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data program studi ini?\')){window.location.href=\'proses/proses-prodi.php?aksi=deletemobil&id='.$mobil['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
+																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data Mobil ini?\')){window.location.href=\'proses/proses-prodi.php?aksi=deletemobil&id='.$mobil['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
 																</td>
 															</tr>';
 														}

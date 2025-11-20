@@ -6,7 +6,7 @@ $master = new MasterData();
 $dataMobil = $master->getUpdateMobil($_GET['id']);
 if(isset($_GET['status'])){
     if($_GET['status'] == 'failed'){
-        echo "<script>alert('Gagal mengubah data program studi. Silakan coba lagi.');</script>";
+        echo "<script>alert('Gagal mengubah data mobil. Silakan coba lagi.');</script>";
     }
 }
 

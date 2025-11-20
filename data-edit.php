@@ -4,15 +4,15 @@ include_once 'config/class-master.php';
 include_once 'config/class-mahasiswa.php';
 $master = new MasterData();
 $customer = new Customer();
-// Mengambil daftar program studi, provinsi, dan status mahasiswa
+// Mengambil daftar mobil, dan status customer
 $mobilList = $master->getMobil();
-// Mengambil daftar status mahasiswa
+// Mengambil daftar mobil
 $statusList = $master->getStatus();
-// Mengambil data mahasiswa yang akan diedit berdasarkan id dari parameter GET
+// Mengambil data customer yang akan diedit berdasarkan id dari parameter GET
 $dataCustomer = $customer->getUpdateCustomer($_GET['id']);
 if(isset($_GET['status'])){
     if($_GET['status'] == 'failed'){
-        echo "<script>alert('Gagal mengubah data mahasiswa. Silakan coba lagi.');</script>";
+        echo "<script>alert('Gagal mengubah data customer. Silakan coba lagi.');</script>";
     }
 }
 ?>
@@ -41,7 +41,7 @@ if(isset($_GET['status'])){
 							<div class="col-sm-6">
 								<ol class="breadcrumb float-sm-end">
 									<li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Edit Data</li>
+									<li class="breadcrumb-item active" aria-current="page">Beranda</li>
 								</ol>
 							</div>
 						</div>
@@ -81,7 +81,7 @@ if(isset($_GET['status'])){
                                                 <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat Lengkap Sesuai KTP" required><?php echo $dataCustomer['alamat']; ?></textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="telp" class="form-label">Nomor Telepon</label>
+                                                <label for="telp" class="form-label">Telp</label>
                                                 <input type="tel" class="form-control" id="telp" name="telp" placeholder="Masukkan Nomor Telpon/HP" value="<?php echo $dataCustomer['telp']; ?>" pattern="[0-9+\-\s()]{6,20}" required>
                                             </div>
                                             <div class="mb-3">
@@ -93,16 +93,16 @@ if(isset($_GET['status'])){
                                                 <select class="form-select" id="mobil" name="mobil" required>
                                                     <option value="" selected disabled>Pilih Mobil</option>
                                                     <?php 
-                                                    // Iterasi daftar program studi dan menandai yang sesuai dengan data mahasiswa yang dipilih
+                                                    // Iterasi daftar mobil dan menandai yang sesuai dengan data customer yang dipilih
                                                     foreach ($mobilList as $mobil){
                                                         // Menginisialisasi variabel kosong untuk menandai opsi yang dipilih
                                                         $selectedMobil = "";
-                                                        // Mengecek apakah program studi saat ini sesuai dengan data mahasiswa
+                                                        // Mengecek apakah program studi saat ini sesuai dengan data customer
                                                         if($dataCustomer['mobil'] == $mobil['id']){
                                                             // Jika sesuai, tandai sebagai opsi yang dipilih
                                                             $selectedMobil = "selected";
                                                         }
-                                                        // Menampilkan opsi program studi dengan penanda yang sesuai
+                                                        // Menampilkan opsi daftar mobil dengan penanda yang sesuai
                                                         echo '<option value="'.$mobil['id'].'" '.$selectedMobil.'>'.$mobil['nama'].'</option>';
                                                     }
                                                     ?>
@@ -126,7 +126,7 @@ if(isset($_GET['status'])){
                                                     foreach ($statusList as $status){
                                                         // Menginisialisasi variabel kosong untuk menandai opsi yang dipilih
                                                         $selectedStatus = "";
-                                                        // Mengecek apakah status saat ini sesuai dengan data mahasiswa
+                                                        // Mengecek apakah status saat ini sesuai dengan data customer
                                                         if($dataCustomer['status'] == $status['id']){
                                                             // Jika sesuai, tandai sebagai opsi yang dipilih
                                                             $selectedStatus = "selected";

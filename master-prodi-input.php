@@ -3,7 +3,7 @@
 // Silakan lihat komentar di file data-input.php untuk penjelasan kode ini, karena struktur dan logikanya serupa.
 if(isset($_GET['status'])){
     if($_GET['status'] == 'failed'){
-        echo "<script>alert('Gagal menambahkan data program studi. Silakan coba lagi.');</script>";
+        echo "<script>alert('Gagal menambahkan data mobil. Silakan coba lagi.');</script>";
     }
 }
 
@@ -33,7 +33,7 @@ if(isset($_GET['status'])){
 							<div class="col-sm-6">
 								<ol class="breadcrumb float-sm-end">
 									<li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Input Mobil</li>
+									<li class="breadcrumb-item active" aria-current="page">Beranda</li>
 								</ol>
 							</div>
 						</div>

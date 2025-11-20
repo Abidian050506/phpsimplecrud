@@ -78,7 +78,7 @@ if(isset($_GET['status'])){
                                                 <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat Lengkap Sesuai KTP" required></textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="telp" class="form-label">Nomor Telepon</label>
+                                                <label for="telp" class="form-label">Telp</label>
                                                 <input type="tel" class="form-control" id="telp" name="telp" placeholder="Masukkan Nomor Telpon/HP" pattern="[0-9+\-\s()]{6,20}" required>
                                             </div>
                                             <div class="mb-3">
@@ -98,7 +98,7 @@ if(isset($_GET['status'])){
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="sewa" class="form-label">Tgl Sewa</label>
+                                                <label for="sewa" class="form-label">Tanggal Sewa</label>
                                                 <input type="date" class="form-control" id="sewa" name="sewa" placeholder="Masukkan Tanggal Sewa Mobil" required>
                                             </div>
                                             <div class="mb-3">

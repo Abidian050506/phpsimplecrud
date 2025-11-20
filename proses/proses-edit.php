@@ -6,6 +6,7 @@ include_once '../config/class-mahasiswa.php';
 $customer = new Customer();
 // Mengambil data customer dari form edit menggunakan metode POST dan menyimpannya dalam array
 $dataCustomer = [
+    'id' => $_POST['id'],
     'ktp' => $_POST['ktp'],
     'nama' => $_POST['nama'],
     'alamat' => $_POST['alamat'],

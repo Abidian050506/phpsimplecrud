@@ -109,6 +109,7 @@ class Customer extends Database {
         $sewa     = $data['sewa'];
         $kembali     = $data['kembali'];
         $status   = $data['status'];
+        $id   = $data['id'];
         // Menyiapkan query SQL untuk update data menggunakan prepared statement
         $query = "UPDATE tb_customer SET ktp_cstmr = ?, nama_cstmr = ?, alamat = ?, telp = ?, email = ?, mobil = ?, tgl_sewa = ?, tgl_kembali = ?, status_pembayaran = ? WHERE id_cstmr = ?";
         $stmt = $this->conn->prepare($query);
