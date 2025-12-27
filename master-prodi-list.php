@@ -72,7 +72,8 @@ $dataMobil = $master->getMobil();
 												<tr>
 													<th>No</th>
 													<th>Kode</th>
-													<th>Nama</th>
+													<th>Nama Mobil</th>
+													<th>Harga Sewa</th>
 													<th class="text-center">Aksi</th>
 												</tr>
 											</thead>
@@ -88,6 +89,7 @@ $dataMobil = $master->getMobil();
 																<td>'.($index + 1).'</td>
 																<td>'.$mobil['id'].'</td>
 																<td>'.$mobil['nama'].'</td>
+																<td>'.$mobil['harga'].'</td>
 																<td class="text-center">
 																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'master-prodi-edit.php?id='.$mobil['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
 																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data Mobil ini?\')){window.location.href=\'proses/proses-prodi.php?aksi=deletemobil&id='.$mobil['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>

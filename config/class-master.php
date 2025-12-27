@@ -14,7 +14,8 @@ class MasterData extends Database {
             while($row = $result->fetch_assoc()) {
                 $mobil[] = [
                     'id' => $row['kode_mobil'],
-                    'nama' => $row['nama_mobil']
+                    'nama' => $row['nama_mobil'],
+                    'harga' => $row['harga_mobil']
                 ];
             }
         }
@@ -35,12 +36,13 @@ class MasterData extends Database {
     public function inputMobil($data){
         $kodeMobil = $data['kode'];
         $namaMobil = $data['nama'];
-        $query = "INSERT INTO tb_mobil (kode_mobil, nama_mobil) VALUES (?, ?)";
+        $hargaMobil = $data['harga'];
+        $query = "INSERT INTO tb_mobil (kode_mobil, nama_mobil, harga_mobil) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         if(!$stmt){
             return false;
         }
-        $stmt->bind_param("ss", $kodeMobil, $namaMobil);
+        $stmt->bind_param("sss", $kodeMobil, $namaMobil, $hargaMobil);
         $result = $stmt->execute();
         $stmt->close();
         return $result;
@@ -61,7 +63,8 @@ class MasterData extends Database {
             $row = $result->fetch_assoc();
             $mobil = [
                 'id' => $row['kode_mobil'],
-                'nama' => $row['nama_mobil']
+                'nama' => $row['nama_mobil'],
+                'harga' => $row['harga_mobil']
             ];
         }
         $stmt->close();
@@ -72,12 +75,13 @@ class MasterData extends Database {
     public function updateMobil($data){
         $kodeMobil = $data['kode'];
         $namaMobil = $data['nama'];
-        $query = "UPDATE tb_mobil SET nama_mobil = ? WHERE kode_mobil = ?";
+        $hargaMobil = $data['harga'];
+        $query = "UPDATE tb_mobil SET nama_mobil = ?, harga_mobil = ? WHERE kode_mobil = ?";
         $stmt = $this->conn->prepare($query);
         if(!$stmt){
             return false;
         }
-        $stmt->bind_param("ss", $namaMobil, $kodeMobil);
+        $stmt->bind_param("sss", $namaMobil, $hargaMobil, $kodeMobil);
         $result = $stmt->execute();
         $stmt->close();
         return $result;
@@ -96,6 +100,33 @@ class MasterData extends Database {
         return $result;
     }
 
+    // Method untuk mendapatkan daftar transaksi/pembayaran
+    
+    public function getTransaksi(){
+        $query = "SELECT 
+                t.id_transaksi, 
+                c.nama_cstmr, 
+                m.kode_mobil, 
+                t.tanggal_transaksi, 
+                t.harga_mobil
+              FROM tb_transaksi t
+              LEFT JOIN tb_customer c ON t.nama_cstmr = c.nama_cstmr
+              LEFT JOIN tb_mobil m ON t.kode_mobil = m.kode_mobil";
+        $result = $this->conn->query($query);
+        $transaksi = [];
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $transaksi[] = [
+                    'id' => $row['nama_cstmr'],
+                    'kode' => $row['kode_mobil'],
+                    'tanggal' => $row['tanggal_transaksi'],
+                    'harga' => $row['harga_mobil']
+
+                ];
+            }
+        }
+        return $transaksi;
+    }
 }
 
 ?>

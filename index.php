@@ -1,3 +1,9 @@
+<?php 
+session_start();
+
+include("middleware/userMiddleware.php");
+?>
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -48,6 +54,7 @@
 											</button>
 										</div>
 									</div>
+									
 
 									<div class="card-body">
 										<p>Halo user! </p>

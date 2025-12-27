@@ -9,7 +9,8 @@ if($_GET['aksi'] == 'inputmobil'){
     // Mengambil data customer dari form input menggunakan metode POST dan menyimpannya dalam array
     $dataMobil = [
         'kode' => $_POST['kode'],
-        'nama' => $_POST['nama']
+        'nama' => $_POST['nama'],
+        'harga' => $_POST['harga']
     ];
     // Memanggil method inputCustomer untuk memasukkan data customer dengan parameter array $dataCustomer
     $input = $master->inputMobil($dataMobil);
@@ -25,7 +26,8 @@ if($_GET['aksi'] == 'inputmobil'){
     $dataMobil = [
         'id' => $_POST['id'],
         'kode' => $_POST['kode'],
-        'nama' => $_POST['nama']
+        'nama' => $_POST['nama'],
+        'harga' => $_POST['harga']
     ];
     // Memanggil method updateProdi untuk mengupdate data prodi dengan parameter array $dataProdi
     $update = $master->updateMobil($dataMobil);

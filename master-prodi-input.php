@@ -67,6 +67,10 @@ if(isset($_GET['status'])){
 												<label for="nama" class="form-label">Nama mobil</label>
 												<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Mobil" required>
 											</div>
+											<div class="mb-3">
+												<label for="nama" class="form-label">Harga sewa mobil</label>
+												<input type="text" class="form-control" id="harga" name="harga" placeholder="Masukkan Harga Mobil" required>
+											</div>
                                         </div>
 									    <div class="card-footer">
                                             <button type="button" class="btn btn-danger me-2 float-start" onclick="window.location.href='master-prodi-list.php'">Batal</button>
