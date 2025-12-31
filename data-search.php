@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include("middleware/userMiddleware.php");
 include_once 'config/class-mahasiswa.php';
 $customer = new Customer();
 $kataKunci = '';

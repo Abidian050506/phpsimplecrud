@@ -11,7 +11,7 @@
             <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation" aria-label="Main navigation" data-accordion="false" id="navigation">
                 <li class="nav-item">
                     <a href="login.php" class="nav-link">
-                        <i class="nav-icon bi bi-house-door-fill"></i>
+                        <i class="nav-icon bi bi-person-circle"></i>
                         <p>Login</p>
                     </a>
                 </li>    
@@ -57,13 +57,19 @@
                                 <p>Payment</p>
                             </a>
                         </li>
-                        <a href="logout.php">logout</a>
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link">
+                                <i class="nav-icon bi bi-arrow-left"></i>
+                                <p>logout</p>
+                            </a>
+                        </li>
+                        
                         
                     </ul>
                 <?php
                 } else {
                 ?>
-                    <a href="#">login untuk lihat</a>
+                    
                     
                 <?php
                 }

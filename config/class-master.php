@@ -105,21 +105,23 @@ class MasterData extends Database {
     public function getTransaksi(){
         $query = "SELECT 
                 t.id_transaksi, 
-                c.nama_cstmr, 
+                c.id_cstmr, 
                 m.kode_mobil, 
-                t.tanggal_transaksi, 
+                c.tgl_sewa, 
+                c.tgl_kembali,
                 t.harga_mobil
               FROM tb_transaksi t
-              LEFT JOIN tb_customer c ON t.nama_cstmr = c.nama_cstmr
+              LEFT JOIN tb_customer c ON t.id_cstmr = c.id_cstmr
               LEFT JOIN tb_mobil m ON t.kode_mobil = m.kode_mobil";
         $result = $this->conn->query($query);
         $transaksi = [];
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $transaksi[] = [
-                    'id' => $row['nama_cstmr'],
+                    'id' => $row['id_cstmr'],
                     'kode' => $row['kode_mobil'],
-                    'tanggal' => $row['tanggal_transaksi'],
+                    'tgl_sewa' => $row['tgl_sewa'],
+                    'tgl_kembali' => $row['tgl_kembali'],
                     'harga' => $row['harga_mobil']
 
                 ];

@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include("middleware/userMiddleware.php");
 include_once 'config/class-mahasiswa.php';
 $customer = new Customer();
 // Menampilkan alert berdasarkan status yang diterima melalui parameter GET
@@ -68,7 +69,7 @@ $dataCustomer = $customer->getAllCustomer();
 										</div>
 									</div>
 									<div class="card-body p-0 table-responsive">
-										<table class="table table-striped" role="table">
+										<table class="table table-bordered table-hover align-middle text-center mb-0" role="table">
 											<thead>
 												<tr>
 													<th>No</th>

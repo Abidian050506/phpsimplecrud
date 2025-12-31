@@ -1,5 +1,6 @@
 <?php 
-
+session_start();
+include("middleware/userMiddleware.php");
 // Silakan lihat komentar di file data-edit.php untuk penjelasan kode ini, karena struktur dan logikanya serupa.
 include_once 'config/class-master.php';
 $master = new MasterData();

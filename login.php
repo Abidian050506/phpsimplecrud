@@ -83,6 +83,12 @@ include("template/header.php");
                                             <i class="bi bi-box-arrow-in-right"></i> Masuk 
                                         </button>
                                     </div>
+                                    <div class="text-center mt-3">
+                                        <span class="text-muted">Belum punya akun?</span>
+                                        <a href="register.php" class="fw-bold text-primary text-decoration-none">
+                                            Register di sini
+                                        </a>
+                                    </div>
 
                                 </form> </div>
 

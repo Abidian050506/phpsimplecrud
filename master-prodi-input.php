@@ -1,5 +1,6 @@
 <?php 
-
+session_start();
+include("middleware/userMiddleware.php");
 // Silakan lihat komentar di file data-input.php untuk penjelasan kode ini, karena struktur dan logikanya serupa.
 if(isset($_GET['status'])){
     if($_GET['status'] == 'failed'){

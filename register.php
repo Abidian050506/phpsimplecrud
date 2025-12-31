@@ -1,5 +1,4 @@
 <?php 
-
 session_start();
 
 if (isset($_SESSION['auth'])) {
@@ -8,84 +7,121 @@ if (isset($_SESSION['auth'])) {
     exit();
 }
 
-
-
+include("template/header.php"); 
 ?>
 
-<div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+<body class="layout-fixed fixed-header fixed-footer sidebar-expand-lg sidebar-open bg-body-tertiary">
 
+<div class="app-wrapper">
 
-  <form class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm space-y-4" action="proses/proses-register.php" method="POST">
-    <h2 class="text-2xl font-bold text-gray-800 text-center">Register</h2>
+    <?php include 'template/navbar.php'; ?>
+    <?php include 'template/sidebar.php'; ?>
 
-    <!-- Name -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-      <input 
-        type="text" 
-        class="w-full px-3 py-2 rounded-md border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none"
-        placeholder="Enter your name"
-        required
-        name="name"
-      >
-    </div>
+    <main class="app-main">
 
-    <!-- Phone Number -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-      <input 
-        type="number" 
-        class="w-full px-3 py-2 rounded-md border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none"
-        placeholder="Enter your phone number"
-        required
-        name="phone"
-      >
-    </div>
+        <div class="app-content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">Register</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+                            <li class="breadcrumb-item active">Register</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Email -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-      <input 
-        type="email" 
-        class="w-full px-3 py-2 rounded-md border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none"
-        placeholder="Enter your email"
-        required
-        name="email"
-      >
-    </div>
+        <div class="app-content">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
 
-    <!-- Password -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-      <input 
-        type="password" 
-        class="w-full px-3 py-2 rounded-md border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none"
-        placeholder="Enter your password"
-        required
-        name="password"
-      >
-    </div>
+                        <div class="card card-primary card-outline shadow-lg" style="border-radius: 15px;">
 
-    <!-- Confirm -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
-      <input 
-        type="password" 
-        class="w-full px-3 py-2 rounded-md border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none"
-        placeholder="Confirm your password"
-        required
-        name="cpassword"
-      >
-    </div>
+                            <div class="card-header">
+                                <h3 class="card-title">Buat Akun Baru</h3>
+                            </div>
 
-    <!-- Submit -->
-    <button 
-      type="submit"
-      class="w-full py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition"
-      name="register_btn"
-    >
-      Register
-    </button>
-  </form>
+                            <div class="card-body p-4">
+                                <form action="proses/proses-register.php" method="POST">
+
+                                    <!-- Name -->
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Nama</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                            <input type="text" class="form-control" name="name" placeholder="Masukkan nama" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Phone -->
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">No. Telepon</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                            <input type="number" class="form-control" name="phone" placeholder="Masukkan nomor telepon" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                            <input type="email" class="form-control" name="email" placeholder="Masukkan email" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Password -->
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                            <input type="password" class="form-control" name="password" placeholder="Masukkan password" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Confirm -->
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Konfirmasi Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                                            <input type="password" class="form-control" name="cpassword" placeholder="Ulangi password" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" name="register_btn"
+                                            class="btn btn-primary btn-lg shadow-sm"
+                                            style="border-radius: 50px; font-weight: 600;">
+                                            <i class="bi bi-person-plus"></i> Register
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="card-footer text-center text-muted">
+                                GoRent — Easy. Fast. Reliable.
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <?php include("template/footer.php") ?>
+
 </div>
 
+<?php include 'template/script.php'; ?>
+</body>
+</html>

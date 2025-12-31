@@ -1,5 +1,6 @@
 <?php 
-
+session_start();
+include("middleware/userMiddleware.php");
 include_once 'config/class-master.php';
 $master = new MasterData();
 // Mengambil daftar program studi, provinsi, dan status mahasiswa

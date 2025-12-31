@@ -2,6 +2,8 @@
 // Pastikan file konfigurasi dan kelas di-include
 include_once 'config/db-config.php';
 include_once 'config/class-master.php';
+session_start();
+include("middleware/userMiddleware.php");
 
 // Inisialisasi objek MasterData
 $master = new MasterData();
@@ -98,9 +100,10 @@ function getStatusName($id, $statuses) {
 											<thead>
 													<tr>
 														<th>No</th>
-														<th>Nama Customer</th>
+														<th>Id Customer</th>
 														<th>Kode Mobil</th>
-														<th>Tanggal Transaksi</th>
+														<th>Tanggal Sewa</th>
+														<th>Tanggal Kembali</th>
 														<th>Total Bayar</th>
 														<th>Aksi</th>
 													</tr>
@@ -109,19 +112,21 @@ function getStatusName($id, $statuses) {
 												<?php
 													if(count($data_transaksi) == 0){
 													    echo '<tr class="align-middle">
-															<td colspan="6" class="text-center">Tidak ada data mobil.</td>
+															<td colspan="8" class="text-center">Tidak ada data mobil.</td>
 														</tr>';
 													} else {
 														foreach ($data_transaksi as $index => $transaksi){
 															echo '<tr class="align-middle">
 																<td>'.($index + 1).'</td>
 																<td>'.$transaksi['id'].'</td>
-																
 																<td>'.$transaksi['kode'].'</td>
-																<td>'.$transaksi['tanggal'].'</td>
-																<td>'.$transaksi['harga'].'</td>
+																<td>'.date('d-m-Y', strtotime($transaksi['tgl_sewa'])).'</td>
+            													<td>'.date('d-m-Y', strtotime($transaksi['tgl_kembali'])).'</td>
+																<td class="fw-bold text-success">
+                												Rp '.number_format($transaksi['harga'], 0, ',', '.').'
+            													</td>
 																<td class="text-center">
-																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'payment-bayar.php?id='.$transaksi['id'].'\'"><i class="bi bi-cash"></i> Bayar </button>
+																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'pembayaran.php?id='.$transaksi['id'].'\'"><i class="bi bi-cash"></i> Bayar </button>
 																	
 																</td>
 															</tr>';

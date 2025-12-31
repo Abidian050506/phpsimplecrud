@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include("middleware/userMiddleware.php");
 // Silakan lihat komentar di file data-list.php untuk penjelasan kode ini, karena struktur dan logikanya serupa.
 include_once 'config/class-master.php';
 $master = new MasterData();
@@ -88,8 +89,9 @@ $dataMobil = $master->getMobil();
 															echo '<tr class="align-middle">
 																<td>'.($index + 1).'</td>
 																<td>'.$mobil['id'].'</td>
-																<td>'.$mobil['nama'].'</td>
-																<td>'.$mobil['harga'].'</td>
+																<td>'.$mobil['nama'].'</td><td class="fw-bold text-success">
+                												Rp '.number_format($mobil['harga'], 0, ',', '.').'
+            													</td>
 																<td class="text-center">
 																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'master-prodi-edit.php?id='.$mobil['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
 																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data Mobil ini?\')){window.location.href=\'proses/proses-prodi.php?aksi=deletemobil&id='.$mobil['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
